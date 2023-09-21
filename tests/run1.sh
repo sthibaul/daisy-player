@@ -3,6 +3,7 @@
 set -xue
 
 export LC_ALL=C
+export TERM=dumb
 
 test -d "$abs_srcdir"
 
@@ -12,7 +13,7 @@ if test "$1" = '--generate'; then
   actual="$2"
 else
   generate=false
-  trap 'rm -f "$actual"' EXIT INT QUIT TERM
+  #trap 'rm -f "$actual"' EXIT INT QUIT TERM
   actual=$(mktemp)
 fi
 
